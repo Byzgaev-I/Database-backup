@@ -88,7 +88,10 @@ pg_restore -U username -d dbname -W -F c -C "/path_to_backup/backup_file.dump".
 Cron задания (Linux/Unix): Используя системный планировщик cron, можно настроить периодическое выполнение команды pg_dump для резервного копирования. Например, добавление следующей строки в crontab (crontab -e) позволит выполнять бэкап каждый день в полночь:
 bash
 
-0 0 * * * /usr/bin/pg_dump -U username -F c -f "/path_to_backup/backup_$(date +\%Y-\%m-\%d).dump" dbname.  
+```bash
+0 0 * * * /usr/bin/pg_dump -U username -F c -f "/path_to_backup/backup_$(date +\%Y-\%m-\%d).dump" dbname.
+```
+ 
 Скрипты оболочки: Можно написать скрипт на Bash или другом языке командной строки, который будет выполнять pg_dump и pg_restore, а затем настроить cron для его выполнения.  
 
 Использование PostgreSQL Continuous Archiving:   
